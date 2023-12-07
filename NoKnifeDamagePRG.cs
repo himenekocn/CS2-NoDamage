@@ -3,15 +3,13 @@ using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Utils;
 
+namespace NoDamage;
 
-namespace NoKnifeDamagePRG;
-
-
-public class NoKnifeDamagePRG : BasePlugin
+public class NoDamage : BasePlugin
 {
-    public override string ModuleAuthor => "sphaxa";
-    public override string ModuleName => "NoKnifeDamage for PRG";
-    public override string ModuleVersion => "v1.0.2";
+    public override string ModuleAuthor => "sphaxa & himeneko";
+    public override string ModuleName => "NoDamage";
+    public override string ModuleVersion => "v1.0.0";
 
     public override void Load(bool hotReload)
     {
@@ -37,16 +35,7 @@ public class NoKnifeDamagePRG : BasePlugin
             return HookResult.Continue;
         }
 
-        if (@event.Weapon == "knife")
-        {
-            if (@event.Userid.PlayerPawn.Value.Health + @event.DmgHealth <= 100)
-            {
-                @event.Userid.PlayerPawn.Value.Health = @event.Userid.PlayerPawn.Value.Health + @event.DmgHealth;
-            } else
-            {
-                @event.Userid.PlayerPawn.Value.Health = 100;
-            }
-        }
+        @event.Userid.PlayerPawn.Value.Health = 100;
 
         @event.Userid.PlayerPawn.Value.VelocityModifier = 1;
 
