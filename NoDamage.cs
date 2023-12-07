@@ -34,9 +34,10 @@ public class NoDamage : BasePlugin
         {
             return HookResult.Continue;
         }
-        
+
+        @event.Userid.PlayerPawn.Value.Health = 100;
         @event.Userid.PlayerPawn.Value.VelocityModifier = 1;
         
-        return HookResult.Handled
+        return HookResult.Continue;
     }
 }
