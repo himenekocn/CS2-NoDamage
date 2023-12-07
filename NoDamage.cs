@@ -7,9 +7,9 @@ namespace NoDamage;
 
 public class NoDamage : BasePlugin
 {
-    public override string ModuleAuthor => "sphaxa & himeneko";
+    public override string ModuleAuthor => "Sphaxa & LynchMus";
     public override string ModuleName => "NoDamage";
-    public override string ModuleVersion => "v1.0.0";
+    public override string ModuleVersion => "v1.0.1";
 
     public override void Load(bool hotReload)
     {
@@ -34,11 +34,9 @@ public class NoDamage : BasePlugin
         {
             return HookResult.Continue;
         }
-
-        @event.Userid.PlayerPawn.Value.Health = 100;
-
+        
         @event.Userid.PlayerPawn.Value.VelocityModifier = 1;
-
-        return HookResult.Continue;
+        
+        return HookResult.Handled
     }
 }
